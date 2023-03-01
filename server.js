@@ -13,18 +13,17 @@ app.use(express.static('public'));
 
 // get request for the index.html page
 app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/index.html'))
+  res.sendFile(path.join(__dirname, '/Develop/public/index.html'))
 );
 
 
 // GET request for notes
-app.get('/api/notes', (req, res) => {
-  // Send a message to the client
-  res.status(200).json(`${req.method} request received to get Notes`);
+app.get('/notes', (req, res) => {
+  res.sendFile(path.join(__dirname, '/Develop/public/notes.html'))
 });
 
 // POST request to add a note
-app.post('/api/notes', (req, res) => {
+app.post('api/notes', (req, res) => {
 
   // Destructuring assignment for the items in req.body
   const { title, text } = req.body;
