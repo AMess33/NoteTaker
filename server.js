@@ -22,12 +22,20 @@ app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, './Develop/public/notes.html'))
 });
 
-app.get('api/notes', (req, res) => {
-  
-})
+app.get('/api/notes', (req, res) => {
+  res.sendFile(path.join(__dirname, './Develop/db/db.json'))
+//   fs.readFile('./Develop/db/db.json', 'utf8', (err, data) => {
+//     if (err) {
+//       console.error(err);
+//     } else {
+      
+//       return res.json(JSON.parse(data));
+//   }
+// })
+});
 
 // POST request to add a note
-app.post('api/notes', (req, res) => {
+app.post('/api/notes', (req, res) => {
 
   // Destructuring assignment for the items in req.body
   const { title, text } = req.body;
